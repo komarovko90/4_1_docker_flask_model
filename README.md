@@ -29,14 +29,13 @@ API: flask
 - section (object) новое или бу авто
 - color (object) цвет авто
 
-Модель: RandomForestRegressor
+Модель: RandomForestRegressor: course_work_finish.ipynb.
 
 ### Клонируем репозиторий и создаем образ
 Работа с контейнером опробована на linux ubuntu.
 ```
-$ git clone https://github.com/fimochka-sudo/GB_docker_flask_example.git
-$ cd price_auto 
-
+$ git clone https://github.com/komarovko90/4_1_docker_flask_model.git
+$ cd 4_1_docker_flask_model
 $ sudo docker build -t price_auto .
 ```
 
@@ -44,11 +43,7 @@ $ sudo docker build -t price_auto .
 
 Здесь Вам нужно создать каталог локально и сохранить туда предобученную модель (<your_local_path_to_pretrained_models> нужно заменить на полный путь к этому каталогу)
 ```
-$ sudo docker run -d -p 8180:8180 -v /home/konstantin/flask_server:/app/app/models price_auto
+$ sudo docker run -d -p 8180:8180 -v <your_local_path_to_pretrained_models>:/app/app/models price_auto
 ```
-sudo service docker restart
 
-
-docker run -d -p 8180:8180 price_auto
-
-### Работаем localhost:8180
+### Работаем с сервисом 0.0.0.0:8180
